@@ -1,0 +1,45 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Landing Page */
+#landing-page {
+  background-color: #333;
+  color: #fff;
+}
+
+#main-nav {
+  background-color: #444;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-link {
+  background-color: #555;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  background-color: #666;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #main-nav {
+    flex-direction: column;
+  }
+
+  .nav-link {
+    margin-bottom: 5px;
+    width: 92%;
+    text-align: center;
+    font-size: 1.5em;  /* Increase font size */
+    display: block;  /* Make it block level to occupy full width */
+  }
+}

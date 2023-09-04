@@ -1,0 +1,41 @@
+/* Students */
+body.students {
+    background-color: #333;  /* Same as main page */
+    color: #fff;
+  }
+  
+  .nav-link {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  #pending-tasks {
+    background-color: #444;  /* Same as nav on main page */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  #pending-tasks h2 {
+    margin-top: 0;
+  }
+  
+  #pending-tasks ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    body.students {
+      font-size: 1.5em;  /* Increased font size for mobile */
+    }
+    #pending-tasks {
+      font-size: 1.2em;
+    }
+  }
+  

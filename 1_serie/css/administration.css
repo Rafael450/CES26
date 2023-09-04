@@ -1,0 +1,41 @@
+/* Administration */
+body.administration {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .nav-link {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  #payment-status {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  #payment-status h2 {
+    margin-top: 0;
+  }
+  
+  #payment-status ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    body.administration {
+      font-size: 1.5em;  /* Increased font size for mobile */
+    }
+    #payment-status {
+      font-size: 1.2em;  /* Increased font size for this section on mobile */
+    }
+  }
+  

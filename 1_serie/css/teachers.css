@@ -1,0 +1,41 @@
+/* Teachers */
+body.teachers {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .nav-link {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  #attendance-list, #grade-list {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  #attendance-list h2, #grade-list h2 {
+    margin-top: 0;
+  }
+  
+  #attendance-list ul, #grade-list ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    body.teachers {
+      font-size: 1.5em;
+    }
+    #attendance-list, #grade-list {
+      font-size: 1.2em;
+    }
+  }
+  

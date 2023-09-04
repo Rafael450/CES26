@@ -1,0 +1,36 @@
+/* External Visitors */
+body.external-visitors {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .nav-link {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  #overview, #contact-info {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  #overview h2, #contact-info h2 {
+    margin-top: 0;
+  }
+  
+  @media (max-width: 768px) {
+    body.external-visitors {
+      font-size: 1.5em;
+    }
+    #overview, #contact-info {
+      font-size: 1.2em;
+    }
+  }
+  
