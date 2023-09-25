@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        form, div {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="file"], button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], button {
+            width: auto;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover, button:hover {
+            background-color: #0056b3;
+        }
+
+        #jsonDataDisplay {
+            font-weight: bold;
+            color: #007BFF;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- File Upload -->
+    <form ref='uploadForm' 
+       action='/upload' 
+       method='post' 
+       encType="multipart/form-data">
+        <label>Upload a file:</label>
+        <input type="file" name="file" />
+        <input type='submit' value='Upload!' />
+    </form>     
+
+    <!-- Form Data Processing -->
+    <form action="/process-form" method="get">
+        <label>Enter some data:</label>
+        <input type="text" name="exampleInput" placeholder="Enter something">
+        <button type="submit">Submit</button>
+    </form>
+
+<!-- Display Uploaded Files -->
+<div>
+    <h3>Uploaded Files:</h3>
+    <ul id="fileList"></ul>
+</div>
+
+<!-- Updated AJAX Application -->
+<div>
+    <button onclick="fetchAndDisplayData()">Get Info on Uploaded Files</button>
+    <div id="jsonDataDisplay"></div>
+</div>
+
+<script>
+    function fetchAndDisplayData() {
+        fetch('/get-json')
+            .then(response => response.json())
+            .then(data => {
+                const fileList = document.getElementById("fileList");
+                fileList.innerHTML = "";
+                data.files.forEach(file => {
+                    const listItem = document.createElement("li");
+                    listItem.innerText = file;
+                    fileList.appendChild(listItem);
+                });
+
+                // Display statistics
+                let displayText = `
+                    Total Files: ${data.totalFiles}
+                    Total Storage Used: ${data.totalSize} bytes
+                    Average File Size: ${data.averageSize.toFixed(2)} bytes
+                    Biggest File: ${data.biggestFile.name} (${data.biggestFile.size} bytes)
+                    Smallest File: ${data.smallestFile.name} (${data.smallestFile.size} bytes)
+                    Latest Uploaded File: ${data.latestFile.name}
+                    Oldest Uploaded File: ${data.oldestFile}
+                    Most Recent Upload: ${data.mostRecentUpload}
+                    First Uploaded File Date: ${new Date(data.firstUploadedFileDate).toLocaleString()}
+                    Last Uploaded File Date: ${new Date(data.lastUploadedFileDate).toLocaleString()}
+                    Disk Space Available: ${data.diskAvailable.toFixed(2)}%
+                `;
+                document.getElementById("jsonDataDisplay").innerText = displayText;
+            });
+    }
+
+    // Call function on page load to display files and statistics
+    fetchAndDisplayData();
+</script>
+
+</body>
+</html>
