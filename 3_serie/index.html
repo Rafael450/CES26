@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit DOM with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .selected { background-color: yellow; }
+        div { padding-left: 20px; } /* Adding padding for child indentation */
+    </style>
+</head>
+<body>
+    <div>
+        Parent
+        <div>Child 1</div>
+        <div>Child 2
+            <div>Grandchild 1</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button id="removeBtn">Remove Selected</button>
+        <button id="changePropsBtn">Change Properties</button>
+        <button id="insertChildBtn">Insert Child</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
