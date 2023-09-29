@@ -1,0 +1,21 @@
+.city {
+  overflow: hidden;
+}
+
+.city-name {
+  cursor: pointer;
+}
+
+.city-name:hover {
+  background-color: lightgrey;
+}
+
+.city-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.city.open .city-details {
+  max-height: 5000px; /* Adjust according to your needs */
+}
